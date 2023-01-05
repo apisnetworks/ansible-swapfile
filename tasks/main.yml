@@ -28,7 +28,9 @@
 
 - name: Add swapfile to /etc/fstab
   lineinfile: dest=/etc/fstab line="{{ swapfile_location }}   none    swap    sw    0   0" state=present
-  when: swapfile_size != false
+  when:
+    - swapfile_size != false
+    - swapfile_add_fstab
 
 - name: Configure vm.swappiness
   lineinfile: dest=/etc/sysctl.conf line="vm.swappiness = {{ swapfile_swappiness }}" regexp="^vm.swappiness[\s]?=" state=present
