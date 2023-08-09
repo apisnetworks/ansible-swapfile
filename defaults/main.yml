@@ -1,7 +1,8 @@
 ---
 swapfile_add_fstab: True
 swapfile_location: /swapfile
-swapfile_size: 512MB
+# Size in megabytes
+swapfile_size: 512
 swapfile_swappiness: False
 swapfile_vfs_cache_pressure: False
 swapfile_use_dd: False
